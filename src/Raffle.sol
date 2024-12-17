@@ -34,7 +34,7 @@ pragma solidity ^0.8.18;
  */
 contract Raffle {
     /* Errors */
-    error Raffle_NotEnoughEthSent();
+    error Raffle__NotEnoughEthSent();
 
     /* State variables */
     uint256 private immutable i_entranceFee;
