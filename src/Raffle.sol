@@ -34,13 +34,19 @@ pragma solidity ^0.8.18;
  */
 
 contract Raffle {
+    /* Errors */
+    error Raffle_NotEnoughEthSent();
+
     uint256 private immutable i_entranceFee;
 
     constructor(uint256 entranceFee) {
         i_entranceFee = entranceFee;
     }
 
-    function enterRaffle() public payable {}
+    function enterRaffle() public payable {
+        // require(msg.value >= i_entranceFee, "Not enough ETH sent");
+        if (msg.value < i_entranceFee) revert Raffle__NotEnoughEthSent();
+    }
 
     function pickWinner() public {}
 
