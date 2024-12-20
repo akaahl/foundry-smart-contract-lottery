@@ -13,3 +13,5 @@ This code is to create a proveably random smart contract lottery.
 3. Chainlink VRF should generate a provably random number.
 
 4. Chainlink Automation should trigger the lottery draw regularly.
+
+## Tests
