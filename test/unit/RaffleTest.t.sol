@@ -22,6 +22,9 @@ contract RaffleTest is Test {
     uint32 private callbackGasLimit;
     uint256 private subscriptionId;
 
+    event EnteredRaffle(address indexed player);
+    event WinnerPicked(address indexed winner);
+
     function setUp() external {
         DeployRaffle deployRaffle = new DeployRaffle();
         (raffle, helperConfig) = deployRaffle.deployContract();
@@ -56,5 +59,15 @@ contract RaffleTest is Test {
         // Assert
         address playerRecorded = raffle.getPlayer(0);
         assert(playerRecorded == PLAYER);
+    }
+
+    function testEnteringRaffleEmitsEvent() public {
+        // Arrange
+        vm.prank(PLAYER);
+        // Act
+        vm.expectEmit(true, false, false, false, address(raffle));
+        emit EnteredRaffle(PLAYER);
+        // Assert
+        raffle.enterRaffle{value: entranceFee}();
     }
 }
