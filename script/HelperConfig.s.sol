@@ -25,6 +25,7 @@ contract HelperConfig is Script, CodeConstants {
         bytes32 gasLane;
         uint32 callbackGasLimit;
         uint256 subscriptionId;
+        address account;
     }
 
     NetworkConfig public localNetworkConfig;
@@ -51,7 +52,8 @@ contract HelperConfig is Script, CodeConstants {
             vrfCoordinator: 0x9DdfaCa8183c41ad55329BdeeD9F6A8d53168B1B,
             gasLane: 0x787d74caea10b2b357790d5b5247c2f63d1d91572a9846f780606e4d953677ae,
             callbackGasLimit: 500000, // 500,000 gas
-            subscriptionId: 0
+            subscriptionId: 0,
+            account: address(0)
         });
     }
 
@@ -62,7 +64,8 @@ contract HelperConfig is Script, CodeConstants {
             vrfCoordinator: address(0),
             gasLane: "",
             callbackGasLimit: 500000,
-            subscriptionId: 0
+            subscriptionId: 0,
+            account: address(0)
         });
     }
 
@@ -87,7 +90,8 @@ contract HelperConfig is Script, CodeConstants {
             vrfCoordinator: address(vrfCoordinatorMock),
             gasLane: 0x474e34a077df58807dbe9c96d3c009b23b3c6d0cce433e59bbf5b34f823bc56c, // doesn't matter for mock
             callbackGasLimit: 500000,
-            subscriptionId: 0
+            subscriptionId: 0,
+            account: address(0)
         });
 
         return localNetworkConfig;
