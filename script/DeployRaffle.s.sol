@@ -6,6 +6,7 @@ import {Script} from "forge-std/Script.sol";
 import {Raffle} from "src/Raffle.sol";
 import {HelperConfig} from "script/HelperConfig.s.sol";
 import {CreateSubscription} from "script/Interactions.s.sol";
+import {LinkToken} from "test/mocks/LinkToken.sol";
 
 contract DeployRaffle is Script {
     function run() public {}
@@ -27,7 +28,8 @@ contract DeployRaffle is Script {
             config.vrfCoordinator,
             config.gasLane,
             config.callbackGasLimit,
-            config.subscriptionId
+            config.subscriptionId,
+            config.linkToken
         );
         vm.stopBroadcast();
 
